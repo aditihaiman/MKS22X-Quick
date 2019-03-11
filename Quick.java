@@ -3,6 +3,13 @@ import java.io.*;
 
 public class Quick{
 
+  public static int quickselect(int []data, int k){
+    int idx = partition(data, 0, data.length-1);
+    while (idx!=k){
+      idx = partition(data, 0, data.length-1);
+    }
+    return data[idx];
+  }
 
 
 
