@@ -11,6 +11,11 @@ public class Quick{
     return data[idx];
   }
 
+  // public static int quickselectH(int[] data, int k, int idx) {
+  //   if (idx==k) return data[idx];
+  //   if (idx > k) return partition(data, 0, k)
+  // }
+
 
 
   public static int partition(int[] data, int start, int end) {
@@ -20,7 +25,7 @@ public class Quick{
     data[pivot] = temp;
     start = 1;
     while(start<data.length&&start!=end){
-      if(data[start] > data[0]) {
+      if(data[start] >= data[0]) {
         temp = data[end];
         data[end] = data[start];
         data[start] = temp;

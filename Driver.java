@@ -4,11 +4,11 @@ import java.io.*;
 public class Driver {
 
   public static void main(String[] args) {
-    int[] arr = {9, 6, 4, 5, 3, 8, 2, 7, 0, 1};
+    int[] arr = {999,999,999,4,1,0,3,2,999,999,999};
     // System.out.println(Arrays.toString(arr));
     // System.out.println(Quick.partition(arr, 0, 9));
     // System.out.println(Arrays.toString(arr));
-    System.out.println(Quick.quickselect(arr, 5));
+    System.out.println(Quick.quickselect(arr, 4));
 
   }
 
