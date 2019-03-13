@@ -9,7 +9,7 @@ public class Quick{
     return quickselectH(data, 0, data.length-1, k);
   }
 
-  public static int quickselectH(int[] data, int lo, int hi, int k) {
+  private static int quickselectH(int[] data, int lo, int hi, int k) {
     if(lo>=hi) return data[lo];
     int idx = partition(data, lo, hi);
     if(idx==k-1) return data[idx];
@@ -17,7 +17,7 @@ public class Quick{
     else return quickselectH(data, idx, hi, k);
   }
 
-  public static int partition(int[] data, int start, int end) {
+  private static int partition(int[] data, int start, int end) {
     int pivot = (int)(Math.random() * ((end - start) + 1)) + start;
     int start1 = start;
     int temp = data[start1];
@@ -54,7 +54,7 @@ public class Quick{
     quicksortH(data, 0, data.length-1);
   }
 
-  public static void quicksortH(int[] data, int start, int end){
+  private static void quicksortH(int[] data, int start, int end){
     if(start>=end) {
       return;
     }
