@@ -3,6 +3,8 @@ import java.io.*;
 
 public class Quick{
 
+
+// -------------------- QuickSelect ------------------------//
   public static int quickselect(int []data, int k){
     int idx = partition(data, 0, data.length-1);
     while (idx!=k-1){
@@ -13,13 +15,6 @@ public class Quick{
     return data[idx];
   }
 
-  // public static int quickselectH(int[] data, int k, int idx) {
-  //   if (idx==k) return data[idx];
-  //   if (idx > k) return partition(data, 0, k)
-  // }
-
-
-
   public static int partition(int[] data, int start, int end) {
     int pivot = (int)(Math.random()*(end-start+1));
     int temp = data[0];
@@ -28,7 +23,7 @@ public class Quick{
     start = 1;
     while(start<data.length&&start!=end){
       boolean swap = ((int)(Math.random()*2)==1);
-      if(data[start] > data[0]|| (data[start]==data[0]&&swap)) {
+      if(data[start] > data[0]||(data[start]==data[0]&&swap)) {
         temp = data[end];
         data[end] = data[start];
         data[start] = temp;
@@ -51,6 +46,18 @@ public class Quick{
     }
   }
 
+//-------------------------- QuickSort --------------------------//
+  public static void quicksort(int[] data) {
+    int idx = partition(data, 0, data.length-1);
+    quicksortH(data, idx, idx);
+  }
+
+  public static void quicksortH(int[] data, int idxR, int idxL){
+    while(idxL!=0 && idxR!=data.length-1) {
+      idxR = partition(data, idxR+1, data.length-1);
+      idxL = partition(data, 0, idxL-1);
+    }
+  }
 
 
 
