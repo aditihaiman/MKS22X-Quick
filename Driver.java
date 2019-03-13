@@ -5,10 +5,10 @@ public class Driver {
 
   public static void main(String[] args) {
     Random rand = new Random(1);
-    int length = 100;
+    int length = 10000;
     int[] arr = new int[length],arr2 = new int[length];
     for(int x = 0; x < arr.length; x++) {
-      int temp = rand.nextInt(100);
+      int temp = rand.nextInt(1000);
       arr[x] = temp;
       arr2[x] = temp;
     }

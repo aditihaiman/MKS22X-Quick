@@ -6,12 +6,15 @@ public class Quick{
 
 // -------------------- QuickSelect ------------------------//
   public static int quickselect(int[] data, int k){
-    int idx = partition(data, 0, data.length-1);
-    while (idx!=k-1){
-      if(idx>k) idx = partition(data,0,idx);
-      else idx = partition(data, idx, data.length-1);
-    }
-    return data[idx];
+    return quickselectH(data, 0, data.length-1, k);
+  }
+
+  public static int quickselectH(int[] data, int lo, int hi, int k) {
+    if(lo>=hi) return data[lo];
+    int idx = partition(data, lo, hi);
+    if(idx==k-1) return data[idx];
+    else if(k-1 < idx) return quickselectH(data, lo, idx-1, k);
+    else return quickselectH(data, idx, hi, k);
   }
 
   public static int partition(int[] data, int start, int end) {
