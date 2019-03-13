@@ -48,19 +48,17 @@ public class Quick{
 
 //-------------------------- QuickSort --------------------------//
   public static void quicksort(int[] data) {
-    int idx = partition(data, 0, data.length-1);
-    quicksortH(data, idx+1, idx-1);
+    quicksortH(data, 0, data.length-1);
   }
 
-  public static void quicksortH(int[] data, int idxR, int idxL){
-    if(idxL!=0) {
-      idxL = partition(data, 0, idxL);
-      quicksortH(data, idxL+1, idxL-1);
+  public static void quicksortH(int[] data, int start, int end){
+    if(start>=end) {
+      return;
     }
-    if(idxR!=data.length-1){
-      idxR = partition(data, idxR, data.length-1);
-      quicksortH(data, idxR+1, idxR-1);
-    }
+    int pivot = partition(data, start, end);
+    //System.out.println(pivot);
+    quicksortH(data, start, pivot-1); //left side
+    quicksortH(data, pivot+1, end); //right side
   }
 
 
