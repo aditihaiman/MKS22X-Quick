@@ -20,33 +20,35 @@ public class Quick{
   private static int partition(int[] data, int start, int end) {
     int pivot = (int)(Math.random() * ((end - start) + 1)) + start;
     int start1 = start;
-    int temp = data[start1];
-    data[start1] = data[pivot];
-    data[pivot] = temp;
+    swap(data, start1, pivot);
     start++;
-    while(start<data.length&&start<end){
-      boolean swap = ((int)(Math.random()*2)==1);
-      if(data[start] > data[start1]||(data[start]==data[start1]&&swap)) {
-        temp = data[end];
-        data[end] = data[start];
-        data[start] = temp;
+    while(start<end){
+      //boolean swap = ((int)(Math.random()*2)==1);
+      if(data[start]==data[start1] && Math.random() > 0.5) {
+        swap(data, end, start);
+        end--;
+      }
+      if(data[start] > data[start1]) {
+        swap(data, end, start);
         end--;
       }
       else start++;
     }
     //switch pivot element back to correct spot
     if(data[start1]>=data[end]) {
-      temp = data[start1];
-      data[start1] = data[end];
-      data[end] = temp;
+      swap(data, start1, end);
       return end;
     }
     else {
-      temp = data[start1];
-      data[start1] = data[end-1];
-      data[end-1] = temp;
+      swap(data, start1, end-1);
       return end-1;
     }
+  }
+
+  private static void swap(int[] data, int el1, int el2) {
+    int temp = data[el1];
+    data[el1] = data[el2];
+    data[el2] = temp;
   }
 
 //-------------------------- QuickSort --------------------------//
