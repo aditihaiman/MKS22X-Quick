@@ -60,7 +60,7 @@ public class Quick{
     if(start>=end) {
       return;
     }
-    else if(end-start<25) {
+    else if(end-start<100) {
       insertionsort(data, start, end);
     }
     else {
