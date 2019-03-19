@@ -60,10 +60,15 @@ public class Quick{
     if(start>=end) {
       return;
     }
-    int pivot = partition(data, start, end);
-    //System.out.println(pivot);
-    quicksortH(data, start, pivot-1); //left side
-    quicksortH(data, pivot+1, end); //right side
+    else if(end-start<25) {
+      insertionsort(data, start, end);
+    }
+    else {
+      int pivot = partition(data, start, end);
+      //System.out.println(pivot);
+      quicksortH(data, start, pivot-1); //left side
+      quicksortH(data, pivot+1, end); //right side
+    }
   }
 
   public static void insertionsort(int[] data, int lo, int hi){
